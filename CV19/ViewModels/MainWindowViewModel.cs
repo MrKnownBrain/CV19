@@ -32,5 +32,18 @@ namespace CV19.ViewModels
         }
 
         #endregion Property Title
+
+        #region Status - Состояние окна.
+
+        private string _Status = "Готов!";
+
+        /// <summary>Состояние главного окна</summary>
+        public string Status
+        {
+            get => _Status;
+            set => Set(ref _Status, value);
+        }
+
+        #endregion Status - Состояние окна.
     }
 }
