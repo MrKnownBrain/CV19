@@ -10,7 +10,39 @@
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="50,44,0,0" Text="{Binding Title , UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" />
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе" />
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem MinWidth="150" MaxHeight="300">
+                <TextBlock Text="1245"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="30"></ProgressBar>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Вкладка 1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="29*" />
+                        <RowDefinition Height="165*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="157*" />
+                        <ColumnDefinition Width="637*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Row="0" Grid.Column="0" Margin="5,7" Fill="Blue" Stroke="Red" StrokeThickness="3" RadiusX="5" RadiusY="7" />
+                    <Ellipse Grid.Row="0" Grid.Column="1" Fill="Red" Stroke="Blue" StrokeThickness="3" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Вкладка 2"></TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
