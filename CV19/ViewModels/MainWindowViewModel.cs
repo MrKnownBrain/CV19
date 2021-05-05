@@ -1,10 +1,13 @@
-﻿using CV19.ViewModels.Base;
+﻿using CV19.Infrastructure.Commands;
+using CV19.ViewModels.Base;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CV19.ViewModels
 {
@@ -45,5 +48,35 @@ namespace CV19.ViewModels
         }
 
         #endregion Status - Состояние окна.
+
+        #region Commands
+
+        #region CloseApplication
+
+        public ICommand CloseApplicationCommand { get; }
+
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanCloseApplicationCommandExecute(object p) => true;
+
+        #endregion CloseApplication
+
+        #endregion Commands
+
+        #region Конструктор
+
+        public MainWindowViewModel()
+        {
+            #region Commands
+
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+
+            #endregion Commands
+        }
+
+        #endregion Конструктор
     }
 }
