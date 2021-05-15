@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace CV19.Infrastructure.Commands
 {
+    /// <summary>
+    /// Команда закрытия приложения.
+    /// </summary>
     internal class CloseApplicationCommand : Command
     {
         public override bool CanExecute(object parameter) => true;
